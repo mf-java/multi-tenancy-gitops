@@ -1,11 +1,11 @@
 resources:
-#- argocd/ace/cicd.yaml
+- argocd/ace/cicd.yaml
 #- argocd/ace/dev.yaml
 #- argocd/ace/stage.yaml
 #- argocd/ace/prod.yaml
 
 #- argocd/mq/cicd.yaml
-#- argocd/mq/dev.yaml
+- argocd/sample-java-app/dev.yaml
 #- argocd/mq/stage.yaml
 #- argocd/mq/prod.yaml
 
@@ -38,7 +38,7 @@ patches:
   patch: |-
     - op: add
       path: /spec/source/repoURL
-      value: ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_APPLICATIONS}
+      value: https://github.com/mf-java/multi-tenancy-gitops-apps.git
     - op: add
       path: /spec/source/targetRevision
-      value: ${GIT_GITOPS_APPLICATIONS_BRANCH}
+      value: master
